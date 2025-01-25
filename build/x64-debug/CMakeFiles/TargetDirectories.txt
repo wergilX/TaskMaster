@@ -1,0 +1,3 @@
+C:/Dima/Projects/TaskMaster++/build/x64-debug/CMakeFiles/TaskMaster++.dir
+C:/Dima/Projects/TaskMaster++/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Dima/Projects/TaskMaster++/build/x64-debug/CMakeFiles/rebuild_cache.dir
