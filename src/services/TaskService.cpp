@@ -1,10 +1,10 @@
 #include "TaskService.h"
 #include "external/crow_all.h"
 
-
 crow::json::wvalue TaskService::getAllTasks() {
     auto tasks = m_taskRepository.getAll();
     
+    //todo
     crow::json::wvalue::list list;
     for(auto& task : tasks)
     {

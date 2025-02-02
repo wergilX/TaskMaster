@@ -4,10 +4,11 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
 	crow::SimpleApp app;
 	TaskController tc(app);
-	app.port(8080).multithreaded().run();
+	app.port(18080).multithreaded().run();
 
 	return 0;
 }
