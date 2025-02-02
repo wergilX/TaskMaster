@@ -1,5 +1,7 @@
 #pragma once
-#include<vector>
+#include "src/models/Task.h"
+#include <vector>
+
 class TaskRepository {
 public:
 	

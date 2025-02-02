@@ -1,5 +1,4 @@
-﻿// TaskController.cpp
-#include "TaskController.h"
+﻿#include "TaskController.h"
 
 TaskController::TaskController(crow::SimpleApp& app) : taskService() {
 	defineRoutes(app);
@@ -9,21 +8,20 @@ void TaskController::defineRoutes(crow::SimpleApp& app) {
 	// get all
 	CROW_ROUTE(app, "/tasks")
 		.methods("GET"_method)([this]() {
-
-		auto tasks = taskService.getAllTasks();
-		return crow::response(200, crow::json::wvalue({ {"tasks", tasks} }));
+		crow::response tasks = taskService.getAllTasks();
+		return tasks;
 			});
 
 	// get id
 	CROW_ROUTE(app, "/tasks/<int>")
 		.methods("GET"_method)([this](int id) {
-
 		auto tasks = taskService.getIdTask(id);
-		return crow::response(200, crow::json::wvalue({ {"task", tasks} }));
+		//return crow::response(200, crow::json::wvalue({ {"task", tasks} }));
+		return tasks;
 			});
 
 	// create
-	CROW_ROUTE(app, "/tasks")
+	/*CROW_ROUTE(app, "/tasks")
 		.methods("POST"_method)([this](const crow::request& req) {
 		auto body = crow::json::load(req.body);
 		if (!body) {
@@ -62,4 +60,5 @@ void TaskController::defineRoutes(crow::SimpleApp& app) {
 		taskService.deleteTask(id);
 		return crow::response(200, "Task deleted");
 			});
+			*/
 }

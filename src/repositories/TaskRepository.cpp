@@ -1,4 +1,5 @@
 ﻿#include "TaskRepository.h"
+#include "external/json.hpp"
 
 std::vector<Task> TaskRepository::getAll() {
     // Заглушка: Реальная реализация будет работать с БД
@@ -7,7 +8,7 @@ std::vector<Task> TaskRepository::getAll() {
 
 Task TaskRepository::getId(int id) {
     // Заглушка: Реальная реализация будет работать с БД
-    return Task{1, "Task 1", 3};
+    return Task{id, "Task " + std::to_string(id), 3};
 }
 
 void TaskRepository::create(const Task& task) {

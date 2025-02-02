@@ -1,6 +1,6 @@
 #pragma once
-#include "../../external/crow/crow_all.h"
-#include "../services/TaskService.h"
+#include "external/crow_all.h"
+#include "src/services/TaskService.h"
 
 class TaskController {
 public:

@@ -1,11 +1,11 @@
 #pragma once
-#include "../../external/crow/crow_all.h"
-#include "../repositories/TaskRepository.h"
+#include "external/crow_all.h"
+#include "src/repositories/TaskRepository.h"
 
 class TaskService {
 public:
-	crow::response getAllTasks();
-	crow::response getIdTask(int id);
+	crow::json::wvalue getAllTasks();
+	crow::json::wvalue getIdTask(int id);
 	crow::response createTask(const std::string& body);
 	crow::response updateTask(int id, const std::string& body);
 	crow::response deleteTask(int id);

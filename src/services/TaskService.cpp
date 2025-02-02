@@ -1,18 +1,28 @@
 #include "TaskService.h"
+#include "external/crow_all.h"
 
-crow::response TaskService::getAllTasks() {
+
+crow::json::wvalue TaskService::getAllTasks() {
     auto tasks = m_taskRepository.getAll();
+    
+    crow::json::wvalue::list list;
+    for(auto& task : tasks)
+    {
+        list.push_back(task.to_json());
+    }
+
     crow::json::wvalue json_response;
-    json_response["tasks"] = crow::json::wvalue::list(tasks);
-    return crow::response(json_response);
+    json_response["tasks"] = std::move(list);
+
+    return json_response;
 }
 
-crow::response TaskService::getIdTask(int id)
+crow::json::wvalue TaskService::getIdTask(int id)
 {
-    auto tasks = m_taskRepository.getAll();
+    auto task = m_taskRepository.getId(id);
     crow::json::wvalue json_response;
-    json_response["tasks"] = crow::json::wvalue::list(tasks);
-    return crow::response(json_response);
+    json_response["tasks"] = crow::json::wvalue::list({task.to_json()});
+    return json_response;
 }
 
 crow::response TaskService::createTask(const std::string& body) {
