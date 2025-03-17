@@ -10,16 +10,12 @@ void TaskController::defineRoutes(crow::SimpleApp &app)
 	// get all
 	CROW_ROUTE(app, "/tasks")
 		.methods("GET"_method)([this]()
-							   {
-		crow::response tasks = taskService.getAllTasks();
-		return tasks; });
+							   { return taskService.getAllTasks(); });
 
 	// get id
 	CROW_ROUTE(app, "/tasks/<int>")
 		.methods("GET"_method)([this](int id)
-							   {
-		auto tasks = taskService.getIdTask(id);
-		return tasks; });
+							   { return taskService.getIdTask(id); });
 
 	// create
 	CROW_ROUTE(app, "/tasks")

@@ -12,6 +12,7 @@ Task TaskRepository::getId(int id) {
 
 void TaskRepository::create(const Task& task) {
     // Реализация для добавления задачи в БД
+    m_database.createTask(Task{});
 }
 
 bool TaskRepository::update(const Task& task) {
