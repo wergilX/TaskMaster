@@ -28,7 +28,6 @@ crow::response TaskService::createTask(const std::string& body) {
     auto json_data = crow::json::load(body);
     if (!json_data) return crow::response(400, "Invalid JSON");
 
-    // todo
     Task new_task;
     new_task.name = json_data["name"].s();
     new_task.priority = json_data["priority"].i();
@@ -41,7 +40,6 @@ crow::response TaskService::updateTask(int id, const std::string& body) {
     auto json_data = crow::json::load(body);
     if (!json_data) return crow::response(400, "Invalid JSON");
 
-    // todo
     Task updated_task;
     updated_task.id = id;
     updated_task.name = json_data["name"].s();
