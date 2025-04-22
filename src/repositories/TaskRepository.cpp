@@ -1,25 +1,22 @@
 ﻿#include "TaskRepository.h"
 
 std::vector<Task> TaskRepository::getAll() {
-    // Заглушка: Реальная реализация будет работать с БД
-    return { Task{1, "Task 1", 3}, Task{2, "Task 2", 1} };
+    return m_database.getAllTasks();
 }
 
 Task TaskRepository::getId(int id) {
-    // Заглушка: Реальная реализация будет работать с БД
-    return Task{id, "Task " + std::to_string(id), 3};
+    return m_database.getTask(id);
 }
 
 void TaskRepository::create(const Task& task) {
-    // Реализация для добавления задачи в БД
+    
+    m_database.createTask(task);
 }
 
 bool TaskRepository::update(const Task& task) {
-    // Реализация для обновления задачи в БД
-    return true; // Заглушка
+    return m_database.updateTask(task);
 }
 
 bool TaskRepository::remove(int id) {
-    // Реализация для удаления задачи из БД
-    return true; // Заглушка
+    return m_database.deleteTask(id) ;
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "src/models/Task.h"
+#include "src/database/Database.hpp"
 #include <vector>
 
 class TaskRepository {
@@ -11,5 +12,5 @@ public:
 	bool update(const Task& task);
 	bool remove(int id);
 private:
-
+	Database m_database;
 };

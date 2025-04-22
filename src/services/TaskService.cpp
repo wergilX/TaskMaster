@@ -13,7 +13,6 @@ crow::json::wvalue TaskService::getAllTasks() {
 
     crow::json::wvalue json_response;
     json_response["tasks"] = std::move(list);
-
     return json_response;
 }
 
